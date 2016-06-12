@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^login/$', views.login, name='login'),
     url(r'^logout/$', views.logout, name='logout'),
     url(r'^profile/$', views.profile, name='profile'),
+    url(r'^profile/update/$', views.ProfileUpdateView.as_view(), name='profile_update'),
     url(r'^admin/', admin.site.urls),
 ]
