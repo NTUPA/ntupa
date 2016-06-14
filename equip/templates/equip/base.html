@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>NTUPA Identity Management</title>
+        <title>NTUPA Equipments Management</title>
 
         <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
         <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-theme.min.css' %}">
@@ -23,15 +23,11 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">NTUPA Identity Management</a>
+                    <a class="navbar-brand" href="#">NTUPA 器材管理</a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="{% url 'profile' %}">首頁</a></li>
-                        <li><a href="{% url 'profile_update' %}">編輯資料</a></li>
-                        <li><a href="{% url 'profile_password' %}">編輯密碼</a></li>
-                        <li><a href="#contact">組員通訊錄</a></li>
-                        <li><a href="{% url 'logout' %}">登出</a></li>
+                        <li class="active"><a href="{% url 'index' %}">首頁</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
