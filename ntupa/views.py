@@ -3,6 +3,7 @@ from django.contrib import auth
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.utils.http import is_safe_url
 from django.views.generic.edit import UpdateView
@@ -41,7 +42,14 @@ def profile(request):
     }
     return render(request, 'ntupa/profile.html', context=context)
 
-class ProfileUpdateView(UpdateWithInlinesView):
+@login_required()
+def profile_password_done(request):
+    context = {
+        'request': request
+    }
+    return render(request, 'ntupa/profile_password_done.html', context=context)
+
+class ProfileUpdateView(LoginRequiredMixin, UpdateWithInlinesView):
     model = User
     inlines = [forms.UserProfileInline]
     fields = ['email']

@@ -4,7 +4,7 @@ from django.db.models.signals import post_save
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, related_name='profile')
-    cellphone = models.CharField(max_length=50, default='', blank=True)
+    cellphone = models.CharField(max_length=50, default='', blank=True, verbose_name='手機號碼')
 
 def create_profile(sender, **kwargs):
     user = kwargs['instance']
