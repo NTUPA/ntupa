@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
-from django.contrib import admin
+from django.contrib import admin, auth
 
 from . import views
 
@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^logout/$', views.logout, name='logout'),
     url(r'^profile/$', views.profile, name='profile'),
     url(r'^profile/update/$', views.ProfileUpdateView.as_view(), name='profile_update'),
-    url(r'^profile/password/$', 'django.contrib.auth.views.password_change', {'template_name': 'ntupa/profile_password.html', 'post_change_redirect': 'profile_password_done'}, name='profile_password'),
+    url(r'^profile/password/$', auth.views.password_change, {'template_name': 'ntupa/profile_password.html', 'post_change_redirect': 'profile_password_done'}, name='profile_password'),
     url(r'^profile/password/done/$', views.profile_password_done, name='profile_password_done'),
     url(r'^equip/', include('equip.urls')),
     url(r'^admin/', admin.site.urls),
