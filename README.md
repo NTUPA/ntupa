@@ -15,6 +15,6 @@ DATABASES = {
     }
 }
 
-#set bellow to absolute system path of STATIC folder
-STATIC_ROOT = '/static/'
+#set below to relative path of STATIC folder
+STATIC_ROOT = 'static/'
 ```
