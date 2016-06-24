@@ -1,0 +1,30 @@
+<table class="table" width="100%" border="1">
+    <thead>
+        <tr>
+            <th>ID#</th>
+            <th>類型</th>
+            <th>名稱</th>
+            <th>編號</th>
+            <th>歸屬</th>
+            <th>狀況</th>
+            <th>目前位置</th>
+            <th>備註</th>
+            <th width="5%">確認</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for eq in equipments %}
+            <tr>
+                <td>{{ eq.id }}</td>
+                <td>{{ eq.category }}</td>
+                <td>{{ eq }}</td>
+                <td>{{ eq.number }}</td>
+                <td>{{ eq.belongs_to }}</td>
+                <td>{{ eq.condition }}</td>
+                <td>{{ eq.location }}</td>
+                <td>{{ eq.description }}</td>
+                <td>&nbsp;</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

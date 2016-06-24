@@ -12,3 +12,10 @@ class IndexView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         return Equipment.objects.all()
+
+class PrintView(LoginRequiredMixin, generic.ListView):
+    template_name = 'equip/print.html'
+    context_object_name = 'equipments'
+
+    def get_queryset(self):
+        return Equipment.objects.all()
