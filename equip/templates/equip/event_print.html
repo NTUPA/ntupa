@@ -1,0 +1,104 @@
+<style>
+    @import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+    @import url(https://fonts.googleapis.com/css?family=Noto+Sans);
+
+    * {
+        font-family: "Noto Sans", "Noto Sans TC", sans-serif;
+    }
+
+    table {
+        margin-bottom: 10px;
+    }
+</style>
+<table width="100%" border="1">
+    <tr>
+        <td colspan="4" style="text-align: center;"><span style="font-size: 1.5em; font-weight: bold;">台大 PA 組 活動器材清單</span><small>最後更新：{{ object.last_updated }}</small></td>
+    </tr>
+    <tr>
+        <td width="20%"><strong>活動名稱</strong></td>
+        <td width="30%">{{ object.name }}</td>
+        <td width="20%"><strong>活動地點</strong></td>
+        <td>{{ object.location }}</td>
+    </tr>
+    <tr>
+        <td><strong>開始日期</strong></td>
+        <td>{{ object.start_date }}</td>
+        <td><strong>結束日期</strong></td>
+        <td>{{ object.end_date }}</td>
+    </tr>
+    <tr>
+        <td><strong>主控</strong></td>
+        <td>{{ object.manager.last_name }}{{ object.manager.first_name }}</td>
+        <td><strong>主控助理</strong></td>
+        <td>{{ object.assistant.last_name }}{{ object.assistant.first_name }}</td>
+    </tr>
+    <tr>
+        <td><strong>Stage</strong></td>
+        <td colspan="3">{% for s in object.stages.all %}{% if forloop.counter > 1 %}、{% endif %}{{ s.last_name }}{{ s.first_name }}{% endfor %}</td>
+    </tr>
+</table>
+<table width="100%" border="1">
+    <thead>
+        <tr>
+            <th>器材名稱</th>
+            <th>型號</th>
+            <th>編號</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for e in object.equipments.all %}
+            <tr>
+                <td>{{ e.category.name }}</td>
+                <td>{{ e }}</td>
+                <td>{{ e.number }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<table width="100%" border="1">
+    <thead>
+        <tr>
+            <th>線材名稱</th>
+            <th>數量</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>XLR-XLR 長／短</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>TS 6.3mm-TS 6.3mm 長／短</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>Speakon-Speakon 長／短</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>TRS 3.5mm-TS 6.3mm</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>TRS 3.5mm-RCA</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>TS 6.3mm-XLR公</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>TS 6.3mm-XLR母</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>其他</td>
+            <td>&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+<table width="100%" border="1" style="min-height: 200px;">
+    <tr>
+        <td style="vertical-align: top;"><strong>備註：</strong>{{ object.note }}</td>
+    </tr>
+</table>

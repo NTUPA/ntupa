@@ -1,0 +1,18 @@
+.ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+    padding: 5px 5px;
+    font-size: .9em;
+}
+
+.ui-selectable {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ui-tabs-panel {
+    padding: 0 !important;
+}
+
+.ui-selectee { background: #FFF; color: #000; padding: 4px; }
+.ui-selecting { background: #FECA40; }
+.ui-selected { background: #F39814; color: white; }

@@ -1,0 +1,28 @@
+{% extends 'equip/base.html' %}
+
+{% block content %}
+<h2>活動列表</h2>
+<a href="{% url 'event_create' %}">新增活動</a>
+<table>
+    <thead>
+        <tr>
+            <th>日期</th>
+            <th>名稱</th>
+            <th>主控</th>
+            <th>地點</th>
+            <th>動作</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ev in events %}
+            <tr>
+                <td>{{ ev.start_date }}</td>
+                <td>{{ ev.name }}</td>
+                <td>{{ ev.manager.last_name }}{{ ev.manager.first_name }}</td>
+                <td>{{ ev.location }}</td>
+                <td><a href="{% url 'event_update' pk=ev.pk %}">編輯</a>｜<a href="{% url 'event_print' pk=ev.pk %}">列印器材單</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

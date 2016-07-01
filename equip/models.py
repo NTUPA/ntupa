@@ -44,13 +44,15 @@ class Equipment(models.Model):
 class Event(models.Model):
     name = models.CharField(max_length=100, verbose_name='名稱')
     client = models.CharField(max_length=100, verbose_name='活動方名稱')
+    location = models.CharField(max_length=100, verbose_name='活動地點')
     start_date = models.DateField(verbose_name='起始日期')
     end_date = models.DateField(verbose_name='結束日期')
     manager = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='主控', related_name='manager_events')
-    assistant = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, verbose_name='主控助理', related_name='assistant_events')
-    stages = models.ManyToManyField(User, verbose_name='Stage', related_name='stage_events')
+    assistant = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL, verbose_name='主控助理', related_name='assistant_events')
+    stages = models.ManyToManyField(User, blank=True, verbose_name='Stage', related_name='stage_events')
     equipments = models.ManyToManyField(Equipment, verbose_name='借用器材')
     note = models.TextField(blank=True, verbose_name='備註')
+    last_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name

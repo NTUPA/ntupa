@@ -1,28 +1,23 @@
 {% extends 'equip/base.html' %}
 
 {% block content %}
-<div class="col-md-3">
-    <h2>篩選條件</h2>
-</div>
-<div class="col-md-9">
-    <h2>器材清單</h2>
-    <table class="table">
-        <thead>
+<h2>器材清單</h2>
+<table>
+    <thead>
+        <tr>
+            <th>名稱</th>
+            <th>狀況</th>
+            <th>目前位置</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for eq in equipments %}
             <tr>
-                <th>名稱</th>
-                <th>狀況</th>
-                <th>目前位置</th>
+                <td>{{ eq }}</td>
+                <td>{{ eq.condition }}</td>
+                <td>{{ eq.location.name }}</td>
             </tr>
-        </thead>
-        <tbody>
-            {% for eq in equipments %}
-                <tr>
-                    <td>{{ eq }}</td>
-                    <td>{{ eq.condition }}</td>
-                    <td>{{ eq.location.name }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
