@@ -1,0 +1,44 @@
+table {
+    border-collapse: collapse;
+    width: 90%;
+    margin: 1em auto;
+}
+
+tr {
+    border-top: 2px solid #90A4AE;
+    border-bottom: 2px solid #90A4AE;
+    max-width: 90%;
+}
+
+td {
+    padding: 0.5em;
+    width: 40%;
+}
+
+tr label {
+    display: inline-block;
+    float: left;
+}
+
+tr input {
+    background-color: #607D8B;
+    color: inherit;
+    border: none;
+    border-bottom: 3px solid transparent;
+    width: 100%;
+}
+
+input:focus {
+    outline: none;
+}
+
+button {
+    display: block;
+    padding: 1em;
+    background-color: #607D8B;
+    color: inherit;
+    border-radius: 0.5em;
+    border: none;
+    margin: auto;
+    margin-top: 1.5em;
+}
