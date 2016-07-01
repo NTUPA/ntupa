@@ -26,12 +26,12 @@ def login(request):
 
     user = auth.authenticate(username=username, password=password)
     
-    redirect_to = request.POST.get('next', request.GET.get('next', reverse('profile')))
+    redirect_to = request.POST.get('next', request.GET.get('next', reverse('home')))
 
     if user is not None and user.is_active:
         auth.login(request, user)
         if not is_safe_url(url=redirect_to, host=request.get_host()):
-            redirect_to = reverse('profile')
+            redirect_to = reverse('home')
 
         return HttpResponseRedirect(redirect_to)
     else:
@@ -39,7 +39,7 @@ def login(request):
 
 def logout(request):
     auth.logout(request)
-    return HttpResponseRedirect(reverse('login'))
+    return HttpResponseRedirect(reverse('home'))
 
 @login_required()
 def profile(request):
