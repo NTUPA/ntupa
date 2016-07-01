@@ -16,7 +16,7 @@
             <ul class="top-nav">
                 <li><a href="{% url 'profile' %}">Profile</a></li>
                 <li><a href="/equip">Equipment</a></li>
-                {% if not loggedin %}
+                {% if loggedin == 'false' %}
                 <li><a href="{% url 'login' %}">Login</a></li>
                 {% else %}
                 <li><a href="{% url 'logout' %}">Logout</a></li>
