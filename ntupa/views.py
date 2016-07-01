@@ -11,6 +11,12 @@ from django.views.generic.edit import UpdateView
 from extra_views import UpdateWithInlinesView
 from . import forms
 
+def home(request):
+    if request.user.is_authenticated():
+        return render(request, 'ntupa/home.html', context={'loggedin': 'true'})
+    else:
+        return render(request, 'ntupa/home.html', context={'loggedin': 'false'})
+
 def login(request):
     if request.user.is_authenticated():
         return HttpResponseRedirect(reverse('profile'))
