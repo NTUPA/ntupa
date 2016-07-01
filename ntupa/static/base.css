@@ -60,6 +60,7 @@ ul.top-nav li.icon {display: none;}
   }
   ul.top-nav.responsive li a {
     display: block;
+    margin-left: 1em;
     text-align: left;
   }
 }
