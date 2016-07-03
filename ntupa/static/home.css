@@ -18,7 +18,8 @@ body {
 }
 
 h1 {
-    font-size: 8em;
+    font-size: 6em;
+    line-height: 0.9em;
     margin: 1rem;
 }
 
