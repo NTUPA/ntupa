@@ -1,4 +1,4 @@
-{% extends 'equip/base.html' %}
+{% extends 'base.html' %}
 
 {% block header %}
 <script type="text/javascript" src="/static/admin/js/core.js"></script>
@@ -11,7 +11,24 @@
 <h2>活動表單</h2>
 <form method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
+
+    <table class="update-table" id="event-update">
+        {% for field in form %}
+        {% if not field.is_hidden %}
+        <tr>
+            <td>
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            </td>
+            <td>
+                <!-- <input type="text" id="{{ field.id_for_label }}" name="{{ field.html_name }}" value="{{ field.value }}"> -->
+                {{ field }}
+            </td>
+        </tr>
+        {% else %}
+        <input type="hidden" name="{{ field.html_name }}" value="{{ field.value }}">
+        {% endif %}
+        {% endfor %}
+    </table>
     <button type="submit">儲存</button>
 </form>
 

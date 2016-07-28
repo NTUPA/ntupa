@@ -1,9 +1,9 @@
-{% extends 'equip/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 <h2>活動列表</h2>
 <a href="{% url 'event_create' %}">新增活動</a>
-<table>
+<table class="update-table" id="event-list">
     <thead>
         <tr>
             <th>日期</th>

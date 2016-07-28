@@ -5,15 +5,24 @@ from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 
-from .models import Equipment, Event
+from .models import Category, Equipment, Event
 from .forms import EventForm
 
-class IndexView(LoginRequiredMixin, generic.ListView):
-    template_name = 'equip/index.html'
-    context_object_name = 'equipments'
+# class IndexView(LoginRequiredMixin, generic.ListView):
+#     template_name = 'equip/index.html'
+#     context_object_name = 'equipments'
 
-    def get_queryset(self):
-        return Equipment.objects.all()
+#     def get_queryset(self):
+#         return for c in Category.objects.all():
+#             Equipment.objects.include(category=c)
+
+@login_required()
+def IndexView(request):
+    categories = []
+    for c in Category.objects.all():
+        categories.append((Equipment.objects.all().filter(category = c),c))
+
+    return render(request, 'equip/index.html', {'categories' : categories})
 
 class EventListView(LoginRequiredMixin, generic.ListView):
     template_name = 'equip/event_list.html'
@@ -31,7 +40,7 @@ class PrintView(LoginRequiredMixin, generic.ListView):
     context_object_name = 'equipments'
 
     def get_queryset(self):
-        return Equipment.objects.all()
+        return Equipment.objects.all().order_by('category')
 
 @login_required()
 def event_create(request):

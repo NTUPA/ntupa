@@ -1,9 +1,12 @@
-{% extends 'equip/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 <h2>器材清單</h2>
-<table>
-    <thead>
+
+{% for c, d in categories %}
+<h3>{{ d }}</h3>
+<table class="update-table">
+    <thead onClick="expandTable(this)">
         <tr>
             <th>名稱</th>
             <th>狀況</th>
@@ -11,13 +14,23 @@
         </tr>
     </thead>
     <tbody>
-        {% for eq in equipments %}
+        {% for e in c %}
             <tr>
-                <td>{{ eq }}</td>
-                <td>{{ eq.condition }}</td>
-                <td>{{ eq.location.name }}</td>
+                <td>{{ e }}</td>
+                <td>{{ e.condition }}</td>
+                <td>{{ e.location.name }}</td>
             </tr>
         {% endfor %}
     </tbody>
 </table>
+{% endfor %}
+
+<script>
+    function expandTable(e) {
+        var t = e.nextElementSibling;
+        t.classList.toggle('hidden-tbody');
+
+    }
+</script>
+
 {% endblock %}

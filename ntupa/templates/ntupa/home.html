@@ -1,42 +1,10 @@
-{% load staticfiles %}
+{% extends 'base.html' %}
 
-<!doctype html>
-<html>
-    <head>
-        <link rel="icon" type="image/png" href="{% static 'favicon-32x32.png' %}" sizes="32x32" />
-        <link rel="icon" type="image/png" href="{% static 'favicon-16x16.png' %}" sizes="16x16" />
-
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>NTU PA</title>
-
-        <link rel="stylesheet" href="{% static 'base.css' %}">
-        <link rel="stylesheet" href="{% static 'home.css' %}">
-    </head>
-    <body>
-        <nav>
-            <ul class="top-nav">
-                <li><a href="{% url 'profile' %}">Profile</a></li>
-                <li><a href="/equip">Equipment</a></li>
-                {% if loggedin == 'false' %}
-                <li><a href="{% url 'login' %}">Login</a></li>
-                {% else %}
-                <li><a href="{% url 'logout' %}">Logout</a></li>
-                {% endif %}
-                <li class="icon"><a href="javascript:void(0);" onclick="expandMenu()">&#9776;</a></li>
-            </ul>
-        </nav>
-        
+{% block fullscreen %}
+    <div id="home-background">
         <div class="center">
             <h1>NTU PA</h1>
             <p><a href="https://www.facebook.com/NTUPAteam">業務請去粉專填表單</a></p>
         </div>
-
-        <script>
-            function expandMenu() {
-                document.getElementsByClassName("top-nav")[0].classList.toggle("responsive");
-}
-        </script>
-    </body>
-</html>
+    </div>
+{% endblock %}

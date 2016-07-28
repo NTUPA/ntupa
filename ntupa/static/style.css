@@ -1,44 +1,172 @@
-table {
-    border-collapse: collapse;
-    width: 90%;
-    margin: 1em auto;
+/*========== Home ==========*/
+
+#home-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/static/background.jpg");
+    background-size: cover;
+    background-color: transparent;
+    z-index: -1;
 }
 
-tr {
-    border-top: 2px solid #90A4AE;
-    border-bottom: 2px solid #90A4AE;
-    max-width: 90%;
+.center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
 }
 
-td {
-    padding: 0.5em;
-    width: 40%;
+.center h1 {
+    pointer-events: none;
+    font-size: 6em;
+    line-height: 0.9em;
+    margin: 1rem;
 }
 
-tr label {
-    display: inline-block;
-    float: left;
+.center a {
+    color: #fff;
 }
 
-tr input {
-    background-color: #607D8B;
+.center p {
+    color: #000;
+}
+
+/*========== Login ==========*/
+
+input {
+    font-size: inherit;
+    background-color: transparent;
     color: inherit;
     border: none;
-    border-bottom: 3px solid transparent;
-    width: 100%;
+    border-bottom: 2px solid #aaa;
+    text-align: center;
+    width: 20rem;
+    height: 2rem;
 }
 
 input:focus {
     outline: none;
+    border-bottom: 2px solid #000;
+    transition: all 0.5s;
 }
 
 button {
+    width: 20rem;
+    height: 2.5rem;
+    padding 0;
+    font-size: 1.125em;
     display: block;
-    padding: 1em;
-    background-color: #607D8B;
-    color: inherit;
-    border-radius: 0.5em;
+    background-color: #2196F3;
+    color: #eee;
+    border-radius: 0.125em;
     border: none;
-    margin: auto;
-    margin-top: 1.5em;
 }
+
+button:focus {
+    outline: none;
+}
+
+/*========== Profile ==========*/
+.nav-table {
+    width: 95%;
+    max-width: 30em;
+    margin: 1em;
+    border-collapse: collapse;
+}
+
+.nav-table a{
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/*=========== Update ==========*/
+form {
+    width: 100%;
+}
+.update-table {
+    max-width: 50em;
+    width: 95%;
+    margin: auto;
+    margin-bottom: 1em;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+tr {
+    width: 100%;
+    border-top: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+}
+
+.update-table th {
+    text-align: left;
+}
+
+td:first-child, th:first-child {
+    padding: 0.25em 1em;
+}
+
+.update-table td:first-child, .update-table th:first-child {
+    width: 50%;
+}
+
+.update-table td:nth-child(2), .update-table th:nth-child(2) {
+    width: 25%;
+}
+
+.update-table input {
+    text-align: left;
+    border: none;
+    width: 100%;
+    height: unset;
+}
+
+.hidden-tbody {
+    display: none;
+    transition: all 1s;
+}
+
+#event-list th:first-child, #event-list td:first-child {
+    width: 20%;
+}
+
+#event-list th:nth-child(2), #event-list td:nth-child(2) {
+    width: 30%;
+}
+
+#event-list th:nth-child(3), #event-list td:nth-child(3) {
+    width: 15%;
+}
+
+#event-list th:nth-child(4), #event-list td:nth-child(4) {
+    width: 17%;
+}
+
+
+#event-list th:nth-child(5), #event-list td:nth-child(5) {
+    width: 18%;
+}
+
+#event-list td, #event-list th{
+    padding: 0.5em 0.5em;
+}
+
+/*=========== Event Update =============*/
+
+
+#event-update th:first-child, #event-update td:first-child {
+    width: 40%;
+}
+
+#event-update th:nth-child(2), #event-update td:nth-child(2) {
+    width: 60%;
+}
+
+
