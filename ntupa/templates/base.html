@@ -1,0 +1,56 @@
+{% load staticfiles %}
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/png" href="{% static 'favicon-32x32.png' %}" sizes="32x32" />
+        <link rel="icon" type="image/png" href="{% static 'favicon-16x16.png' %}" sizes="16x16" />
+
+        <title>NTU PA</title>
+
+        <link rel="stylesheet" href="{% static 'base.css' %}">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+    <body>
+        <nav>
+            <div class="container space-around">
+                <a class="navlink" href="/equip">
+                    <img class="navicon" src="{% static 'equip.svg' %}" />
+                </a>
+                <a class="navlink" href="/equip/event">
+                    <img class="navicon" src="{% static 'event.svg' %}" />
+                </a>
+                <a class="navlink" href="/home">
+                    <img class="navicon" src="{% static 'home.svg' %}" />
+                </a>
+                <a class="navlink" href="/profile">
+                    <img class="navicon" src="{% static 'profile.svg' %}" />
+                </a>
+                {% if loggedin == 'false' %}
+                <a class="navlink" href="/login">
+                    <img class="navicon" src="{% static 'login.svg' %}" />
+                </a>
+                {% else %}
+                <a class="navlink" href="/logout">
+                    <img class="navicon" src="{% static 'logout.svg' %}" />
+                </a>
+                {% endif %}
+            </div>
+        </nav>
+
+        {% block fullscreen %}
+        {% endblock %}
+
+        <div class="container">
+
+            {% block content %}
+            {% endblock %}
+
+        </div>
+    </body>
+</html>
+
+
