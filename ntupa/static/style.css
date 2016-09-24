@@ -110,7 +110,7 @@ tr {
 }
 
 td:first-child, th:first-child {
-    padding: 0.25em 1em;
+    padding: 0.5em 1em;
 }
 
 .update-table td:first-child, .update-table th:first-child {

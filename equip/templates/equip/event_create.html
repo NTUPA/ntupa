@@ -14,7 +14,6 @@
 
     <table class="update-table" id="event-update">
         {% for field in form %}
-        {% if not field.is_hidden %}
         <tr>
             <td>
                 <label for="{{ field.id_for_label }}">{{ field.label }}</label>
@@ -24,9 +23,6 @@
                 {{ field }}
             </td>
         </tr>
-        {% else %}
-        <input type="hidden" name="{{ field.html_name }}" value="{{ field.value }}">
-        {% endif %}
         {% endfor %}
     </table>
     <button type="submit">儲存</button>
